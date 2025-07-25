@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard - Movie Upload</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      color: #ff4444;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+      background: #333;
+      color: white;
+    }
+
+    button {
+      background: #ff4444;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #dd2222;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #444;
+      text-align: left;
+    }
+
+    th {
+      background: #222;
+    }
+
+    img {
+      width: 60px;
+      border-radius: 5px;
+    }
+
+    a {
+      color: #66ccff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🎬 Admin Dashboard</h1>
+    <h2>Upload New Movie</h2>
+    
+    <form id="movieForm">
+      <input type="text" id="title" placeholder="Movie Title" required>
+      <input type="text" id="poster" placeholder="Poster Image URL" required>
+      <input type="text" id="quality" placeholder="Video Quality (e.g. 720p, 1080p)" required>
+      <input type="text" id="link" placeholder="Download Link" required>
+      <button type="submit">Upload Movie</button>
+    </form>
+
+    <h2>📄 Uploaded Movies</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Quality</th>
+          <th>Poster</th>
+          <th>Download Link</th>
+        </tr>
+      </thead>
+      <tbody id="movieTable">
+        <!-- Movie rows will appear here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const form = document.getElementById("movieForm");
+    const table = document.getElementById("movieTable");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const title = document.getElementById("title").value.trim();
+      const poster = document.getElementById("poster").value.trim();
+      const quality = d
